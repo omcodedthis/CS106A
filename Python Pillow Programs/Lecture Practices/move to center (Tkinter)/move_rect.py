@@ -22,20 +22,14 @@ def main():
    sq_start_y = (CANVAS_HEIGHT / 2) - (SQUARE_SIZE / 2)
    sq_end_y = (CANVAS_HEIGHT / 2) + (SQUARE_SIZE / 2)
    rect = canvas.create_rectangle(0, sq_start_y, SQUARE_SIZE, sq_end_y, fill="steel blue", outline="steel blue")
-# This section creates the canvas and denotes where the square is first drawn. sq_start_y is the origin and it is such
-# that it is drawn in the center of the vertical axis, hence half the square length must be subtracted.
-
-
-
    while check_if_center(canvas, rect):
        canvas.move(rect, 1, 0)
        canvas.update()
-       time.sleep(0.0166667)
-# This section checks whether the square is in the center and then moves it one pixel at a frame rate of ~60Hz.
+       time.sleep(1/60)
+       canvas.mainloop()
 
-
-    canvas.mainloop()
-
+# This section creates the canvas and denotes where the square is first drawn. sq_start_y is the origin and it is such
+# that it is drawn in the center of the vertical axis, hence half the square length must be subtracted.
 
 def check_if_center(canvas, object):
     current_x = get_left_x(canvas, object)
